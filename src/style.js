@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const Box = styled.div`
+export const Box = styled.header`
+    width: 100%;
+    height: 70px;
+    background-color: #333;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -14,21 +17,17 @@ export const H1 = styled.h1`
     align-items: center;
     
 `
-
 export const Image = styled.img`
     width: 45px;
     height: 45px;
     margin-right: 10px;
 `
-
-export const Search = styled.form`
-    width: 100%;
-    height: 70px;
-    background-color: #333;
+export const Search = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
 `
+
 
 export const Input = styled.input`
     font-size: 18px;
@@ -38,7 +37,6 @@ export const Input = styled.input`
     padding: 5px;
     color: #555;
 `
-
 export const Btn = styled.button`
     font-size: 18px;
     border-radius: 15px;
@@ -57,4 +55,11 @@ export const Btn = styled.button`
         color: #fff;
         background-color: #0B8043;
     }
+`
+export const Content = styled.div`
+    width: 100%;
+    height:100vh;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 `

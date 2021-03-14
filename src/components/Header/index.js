@@ -1,17 +1,26 @@
+import {useState} from 'react'
+
 import {H1, Box, Input, Search, Btn, Image} from './style'
 
-function Header() {
+function Header(props) {
+  const [user, setUser] = useState('')
+
+  const onFormSubmit = event => {
+    event.preventDefault()
+    setUser(user)
+    props.onSubmit(user)
+  }
     return (
-      <Box>
-        <H1>
+      <Search onSubmit={onFormSubmit}>
+      <H1>
         <Image src="https://webstockreview.net/images/github-icon-png-8.png"/>
-          Github Finder
-          </H1> 
-        <Search>
-          <Input placeholder="Usuário/repositório"/>
-          <Btn>Buscar</Btn>
-        </Search>
-      </Box>  
+        <strong>Github Finder</strong>
+      </H1> 
+      <Box>
+        <Input value={user} onChange={e => setUser(e.target.value)} placeholder="Usuário/repositório"/>
+        <Btn type="submit">Buscar</Btn>
+      </Box>
+      </Search>
     );
   }
   
