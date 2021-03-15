@@ -1,20 +1,18 @@
-import {useState, useEffect} from 'react'
-import api  from './service/api'
+import {useState} from 'react'
 
 import Header from './components/Header'
 import Card from './components/Card'
-import GlobalStyle, { Content, Ops } from './globalStyle'
+
+import api from './service/api'
+
+import GlobalStyle, { Content } from './styles/globalStyle'
 
 function App() {
 
-  const [userData, setUserData] = useState({})
+  const [userData, setUserData] = useState(null)
 
-  useEffect(()=>{
-    setUserData(null)
-  },[])
-
-  const onSearchSubmit = async (user) => {
-    const response = await api.get(`/${user}?client_id=5c41c6afc48dde855925&client_secret=61ccb8453c307ae755e5efdc99213c3531c7bac2`)
+  const onSearchSubmit = async user => {
+    const response = await api.get(`/${user}`)
     setUserData(response.data)
   }
 
@@ -23,7 +21,9 @@ function App() {
         <GlobalStyle />
         <Header onSubmit={onSearchSubmit}/>
         <Content>
-          { userData === null ? <Ops>Aguardando resultados...</Ops> : <Card user={userData} />}
+          {
+            userData === null ? <h1>Ops... sem nenhum resultado ainda :) </h1> : <Card user={userData}/>
+          }
         </Content>
       </>
   );

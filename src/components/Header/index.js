@@ -1,8 +1,8 @@
 import {useState} from 'react'
-
 import {H1, Box, Input, Search, Btn, Image} from './style'
 
 function Header(props) {
+
   const [user, setUser] = useState('')
 
   const onFormSubmit = event => {
@@ -10,6 +10,7 @@ function Header(props) {
     setUser(user)
     props.onSubmit(user)
   }
+
     return (
       <Search onSubmit={onFormSubmit}>
       <H1>
@@ -17,8 +18,12 @@ function Header(props) {
         <strong>Github Finder</strong>
       </H1> 
       <Box>
-        <Input value={user} onChange={e => setUser(e.target.value)} placeholder="Usuário/repositório"/>
-        <Btn type="submit">Buscar</Btn>
+        <Input 
+          value={user} 
+          onChange={ e =>setUser(e.target.value)} 
+          placeholder="Usuário"
+        />
+        <Btn>Buscar</Btn>
       </Box>
       </Search>
     );
