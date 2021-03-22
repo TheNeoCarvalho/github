@@ -3,16 +3,15 @@ import {H1, Box, Input, Search, Btn, Image} from './style'
 
 function Header(props) {
 
-  const [user, setUser] = useState('')
+  const [user, setUser] = useState('neo')
 
-  const onFormSubmit = event => {
+  const onFormSubit = event => {
     event.preventDefault()
-    setUser(user)
     props.onSubmit(user)
   }
-
+ 
     return (
-      <Search onSubmit={onFormSubmit}>
+      <Search onSubmit={onFormSubit}>
       <H1>
         <Image src="https://webstockreview.net/images/github-icon-png-8.png"/>
         <strong>Github Finder</strong>
@@ -20,8 +19,8 @@ function Header(props) {
       <Box>
         <Input 
           value={user} 
-          onChange={ e =>setUser(e.target.value)} 
-          placeholder="Usuário"
+          onChange={e => setUser(e.target.value)} 
+          placeholder="Buscar usuário..."
         />
         <Btn>Buscar</Btn>
       </Box>
